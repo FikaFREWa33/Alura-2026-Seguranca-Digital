@@ -3,37 +3,27 @@ let tamanhoSenha = 12;
 
 const botoes = document.querySelectorAll('.parametro-senha__botao');
 const campoSenha = document.querySelector('#campo-senha');
+const checkbox = document.querySelectorAll('.parametro-senha-checkbox input');
 
 const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
 const letrasMinusculas = 'abcdefghijklmnopqrstuvxywz';
 const numeros = '0123456789';
 const simbolos = '!@%*?';
 
-let alfabeto = '';
-if (checkbox[0].checked){
-    alfabeto = alfabeto + letrasMaiusculas;
-}
-console.log(alfabeto);
+// Atualiza número de caracteres na tela
+numeroSenha.textContent = tamanhoSenha;
 
-geraSenha();
+// Configura eventos dos botões
+botoes[0].onclick = diminuiTamanho;
+botoes[1].onclick = aumentaTamanho;
 
-const campoSenha = document.querySelector('#campo-senha');
-const checkbox = document.querySelectorAll('.checkbox');
-
-for (i=0; i < checkbox.length;i++){
+// Configura eventos dos checkboxes
+for (let i = 0; i < checkbox.length; i++){
     checkbox[i].onclick = geraSenha;
 }
 
-console.log(checkbox[0].checked);
-
-campoSenha.value = letrasMaiusculas;
-
-numeroSenha.textContent = tamanhoSenha;
-
-console.log(botoes)
-
-botoes[0].onclick = diminuiTamanho;
-botoes[1].onclick = aumentaTamanho;
+// Gera a senha inicial
+geraSenha();
 
 
 function diminuiTamanho(){
