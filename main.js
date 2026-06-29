@@ -11,13 +11,17 @@ const numeros = '0123456789';
 const simbolos = '!@%*?';
 const forcaSenha = document.querySelector('.forca');
 
-function classificaSenha(){
+function classificaSenha(tamanhoAlfabeto){
+    const valorEntropia = document.querySelector('.entropia');
+    valorEntropia.textContent = 2**Math.floor(entropia)/(100e6*60*60*24);
+    let entropia = tamanhoSenha * Math.log2(tamanhoSenha);
+    console.log(entropia);
     forcaSenha.classList.remove('fraca','media','forte');
-    if (tamanhoSenha > 11){
+    if (tamanhoSenha > 57){
         forcaSenha.classList.add('forte');
-    } else if (tamanhoSenha > 5 && tamanhoSenha < 12 ) {
+    } else if (tamanhoSenha > 35 && tamanhoSenha < 57 ) {
         forcaSenha.classList.add('media');
-    } else if (tamanhoSenha <= 5){
+    } else if (tamanhoSenha <= 35){
         forcaSenha.classList.add('fraca');
     }
 }
@@ -77,5 +81,5 @@ function geraSenha(){
         senha = senha + alfabeto[numeroAleatorio];
     }
     campoSenha.value = senha;
-    classificaSenha();
+    classificaSenha(alfabeto.length);
 }
