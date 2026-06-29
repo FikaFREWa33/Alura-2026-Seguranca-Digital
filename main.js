@@ -13,8 +13,8 @@ const forcaSenha = document.querySelector('.forca');
 
 function classificaSenha(tamanhoAlfabeto){
     const valorEntropia = document.querySelector('.entropia');
-   valorEntropia.textContent = "Um computador pode levar até " + Math.floor(2**entropia/(100e6*60*60*24)) + " dias para descobrir essa senha.";
-    let entropia = tamanhoSenha * Math.log2(tamanhoSenha);
+    let entropia = tamanhoSenha * Math.log2(tamanhoAlfabeto);
+    valorEntropia.textContent = "Um computador pode levar até " + Math.floor(2**entropia/(100e6*60*60*24)) + " dias para descobrir essa senha.";
     console.log(entropia);
     forcaSenha.classList.remove('fraca','media','forte');
     if (tamanhoSenha > 57){
